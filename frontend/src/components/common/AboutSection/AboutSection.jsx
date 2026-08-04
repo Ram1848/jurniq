@@ -63,11 +63,24 @@ const AboutSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-gradient-to-tr from-primary/20 to-accent/20 flex items-center justify-center">
-               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-80 mix-blend-overlay"></div>
-               <div className="relative z-10 glass-card p-6 max-w-xs text-center transform translate-y-8">
-                 <p className="text-3xl font-extrabold text-text-primary mb-1">5M+</p>
-                 <p className="text-sm font-medium text-text-secondary">Rides Completed Annually</p>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-slate-900 flex items-center justify-center group">
+               {/* High-Definition Clear Background Image */}
+               <img 
+                 src="/rides_completed_bg.png" 
+                 alt="Professional driver inside vehicle - 5M+ Rides Completed" 
+                 className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                 onError={(e) => {
+                   // Fallback to high clarity unsplash photo if local image fails
+                   e.currentTarget.src = "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1200&auto=format&fit=crop";
+                 }}
+               />
+               {/* Subtle contrast gradient overlay */}
+               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-slate-950/20 to-black/40 pointer-events-none"></div>
+
+               {/* Crisp Centered Glassmorphism Card */}
+               <div className="relative z-10 glass-card p-6 sm:p-8 max-w-xs text-center border border-white/60 shadow-2xl backdrop-blur-xl bg-white/90 dark:bg-slate-900/90 rounded-2xl transform transition-transform duration-300 hover:scale-105">
+                 <p className="text-4xl sm:text-5xl font-black text-text-primary mb-1 tracking-tight">5M+</p>
+                 <p className="text-sm font-semibold text-text-secondary">Rides Completed Annually</p>
                </div>
             </div>
           </motion.div>

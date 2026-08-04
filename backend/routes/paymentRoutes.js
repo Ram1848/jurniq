@@ -7,6 +7,7 @@ const paymentController = require('../controllers/paymentController');
 router.use(protect);
 
 router.post('/create-checkout-session', paymentController.createCheckoutSession);
+router.post('/process', paymentController.processPayment);
 router.post('/success', paymentController.paymentSuccess);
 router.get('/history', paymentController.getPaymentHistory);
 

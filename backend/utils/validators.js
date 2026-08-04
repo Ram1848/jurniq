@@ -1,4 +1,4 @@
-// Basic validation utility
+// Basic validation utility and response helpers
 
 const isEmail = (email) => {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -19,8 +19,25 @@ const validateRegistration = (data) => {
   return errors;
 };
 
+const sendResponse = (res, statusCode, message, data = {}) => {
+  return res.status(statusCode).json({
+    success: true,
+    message,
+    ...data,
+  });
+};
+
+const sendError = (res, statusCode, message) => {
+  return res.status(statusCode).json({
+    success: false,
+    message,
+  });
+};
+
 module.exports = {
   isEmail,
   isPhone,
   validateRegistration,
+  sendResponse,
+  sendError,
 };

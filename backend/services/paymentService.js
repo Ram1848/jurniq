@@ -1,8 +1,9 @@
-const Stripe = require('stripe');
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
-
+const stripe = require('../config/stripe');
 const { pool } = require('../config/db');
 
+/**
+ * Create Stripe Checkout Session (for Stripe Card redirect flow)
+ */
 const createCheckoutSession = async (ride_id, amount, rider_id) => {
   try {
     const session = await stripe.checkout.sessions.create({
@@ -35,16 +36,36 @@ const createCheckoutSession = async (ride_id, amount, rider_id) => {
   }
 };
 
-const recordPayment = async (ride_id, amount, method, status) => {
+/**
+ * Record Payment in Database and Update Ride Status & Payment Method
+ */
+const recordPayment = async (ride_id, amount, method, status = 'completed', transaction_id = null) => {
+  const txnId = transaction_id || `TXN_${method.toUpperCase()}_${Date.now()}_${Math.floor(1000 + Math.random() * 9000)}`;
+
   const [result] = await pool.query(
-    `INSERT INTO payments (ride_id, amount, payment_method, payment_status)
-     VALUES (?, ?, ?, ?)`,
-    [ride_id, amount, method, status]
+    `INSERT INTO payments (ride_id, amount, payment_method, payment_status, stripe_transaction_id, transaction_id)
+     VALUES (?, ?, ?, ?, ?, ?)`,
+    [ride_id, amount, method, status, txnId, txnId]
   );
 
-  return result.insertId;
+  // Update ride payment_method and set status to completed if pending/accepted/in_progress
+  await pool.query(
+    `UPDATE rides 
+     SET payment_method = ?,
+         status = CASE WHEN status IN ('pending', 'accepted', 'in_progress') THEN 'completed' ELSE status END
+     WHERE ride_id = ?`,
+    [method, ride_id]
+  );
+
+  return {
+    payment_id: result.insertId,
+    transaction_id: txnId,
+  };
 };
 
+/**
+ * Get Paginated Payment History with Search Support
+ */
 const getPaymentHistory = async (
   user_id,
   page = 1,
@@ -55,7 +76,13 @@ const getPaymentHistory = async (
 
   let query = `
     SELECT
-      p.*,
+      p.payment_id,
+      p.ride_id,
+      p.amount,
+      p.payment_status,
+      p.payment_method,
+      COALESCE(p.transaction_id, p.stripe_transaction_id) AS transaction_id,
+      p.created_at,
       r.pickup_location,
       r.drop_location,
       r.created_at AS ride_date
@@ -72,11 +99,12 @@ const getPaymentHistory = async (
         r.pickup_location LIKE ?
         OR r.drop_location LIKE ?
         OR p.payment_method LIKE ?
+        OR p.transaction_id LIKE ?
       )
     `;
 
     const searchPattern = `%${search}%`;
-    queryParams.push(searchPattern, searchPattern, searchPattern);
+    queryParams.push(searchPattern, searchPattern, searchPattern, searchPattern);
   }
 
   const [countResult] = await pool.query(
@@ -84,10 +112,9 @@ const getPaymentHistory = async (
     queryParams
   );
 
-  const total = countResult[0].total;
+  const total = countResult[0]?.total || 0;
 
   query += ` ORDER BY p.created_at DESC LIMIT ? OFFSET ?`;
-
   queryParams.push(parseInt(limit), parseInt(offset));
 
   const [payments] = await pool.query(query, queryParams);
@@ -96,7 +123,7 @@ const getPaymentHistory = async (
     data: payments,
     total,
     page: parseInt(page),
-    totalPages: Math.ceil(total / limit),
+    totalPages: Math.ceil(total / limit) || 1,
   };
 };
 

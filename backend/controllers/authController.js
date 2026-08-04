@@ -1,4 +1,5 @@
 const authService = require('../services/authService');
+const otpService = require('../services/otpService');
 const generateToken = require('../utils/generateToken');
 
 const register = async (req, res) => {
@@ -66,4 +67,100 @@ const updateProfile = async (req, res) => {
   }
 };
 
-module.exports = { register, login, getProfile, updateProfile };
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+  try {
+    const result = await otpService.generateAndSendOTP(email);
+    res.status(200).json(result);
+  } catch (error) {
+    const status = error.message === 'Account not found.' ? 404 : 400;
+    res.status(status).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+const verifyOTP = async (req, res) => {
+  const { email, otp } = req.body;
+  try {
+    const result = await otpService.verifyOTP(email, otp);
+    res.status(200).json(result);
+  } catch (error) {
+    const status = error.message.includes('attempts exceeded') ? 429 : 400;
+    res.status(status).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+const resendOTP = async (req, res) => {
+  const { email } = req.body;
+  try {
+    const result = await otpService.resendOTP(email);
+    res.status(200).json(result);
+  } catch (error) {
+    const status = error.message === 'Account not found.' ? 404 : 400;
+    res.status(status).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  const { email, otp, newPassword, confirmPassword } = req.body;
+  try {
+    const result = await otpService.resetPassword(email, otp, newPassword, confirmPassword);
+    res.status(200).json(result);
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message
+    });
+  }
+};
+
+const testEmail = async (req, res) => {
+  const { email } = req.body;
+  const emailService = require('../services/emailService');
+
+  if (!email) {
+    return res.status(400).json({
+      success: false,
+      message: 'Please provide a target email address.'
+    });
+  }
+
+  try {
+    const configStatus = await emailService.verifyEmailConfig();
+    const sendInfo = await emailService.sendTestEmail(email);
+
+    res.status(200).json({
+      success: true,
+      message: `Test email successfully dispatched to ${email}`,
+      config: configStatus,
+      messageId: sendInfo.messageId,
+      response: sendInfo.response || 'Dispatched'
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: `Test email delivery failed: ${error.message}`,
+      error: error.message
+    });
+  }
+};
+
+module.exports = {
+  register,
+  login,
+  getProfile,
+  updateProfile,
+  forgotPassword,
+  verifyOTP,
+  resendOTP,
+  resetPassword,
+  testEmail
+};

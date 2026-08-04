@@ -105,9 +105,9 @@ const Login = () => {
                 <input type="checkbox" className="w-4 h-4 rounded border-gray-300 text-primary accent-primary" />
                 Remember me
               </label>
-              <a href="#" className="text-primary font-medium hover:underline no-underline">
+              <Link to="/forgot-password" className="text-primary font-medium hover:underline no-underline">
                 Forgot password?
-              </a>
+              </Link>
             </div>
 
             {/* Submit */}

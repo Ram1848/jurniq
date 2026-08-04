@@ -34,6 +34,9 @@ import Settings from './pages/Settings';
 import ChatBot from './components/Chat/ChatBot';
 import RideAnalytics from './pages/RideAnalytics';
 import EcoDashboard from './pages/EcoDashboard';
+import ForgotPassword from './pages/ForgotPassword';
+import VerifyOTP from './pages/VerifyOTP';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   return (
@@ -48,6 +51,9 @@ function App() {
         {/* Auth pages — no layout chrome */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/verify-otp" element={<VerifyOTP />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         {/* Protected rider dashboard pages */}
         <Route element={<ProtectedRoute />}>
