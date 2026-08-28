@@ -28,7 +28,10 @@ const testConnection = async () => {
     console.log('TiDB Connected Successfully');
     connection.release();
   } catch (error) {
-    console.error(`Database Connection Failed: ${error.message}`);
+    console.error('Database Connection Failed');
+    console.error('Error message:', error.message);
+    console.error('Error code:', error.code);
+    console.error('Full database error:', error);
     process.exit(1);
   }
 };
