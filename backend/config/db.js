@@ -1,33 +1,35 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
-// ──────────────────────────────────────────────
-// Create a MySQL connection pool using env vars
-// ──────────────────────────────────────────────
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
+  port: Number(process.env.DB_PORT) || 4000,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+
+  ssl: {
+    rejectUnauthorized: true,
+  },
+
   waitForConnections: true,
-  connectionLimit: 10,      // max simultaneous connections
-  queueLimit: 0,            // unlimited queued requests
-  enableKeepAlive: true,    // keep TCP connections alive
-  keepAliveInitialDelay: 0, // start keep-alive immediately
+  connectionLimit: 10,
+  queueLimit: 0,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0,
 });
 
 /**
  * Test the database connection on startup.
- * Acquires a connection from the pool, logs success, then releases it.
  */
 const testConnection = async () => {
   try {
     const connection = await pool.getConnection();
-    console.log('MySQL Connected Successfully');
+    console.log('TiDB Connected Successfully');
     connection.release();
   } catch (error) {
     console.error(`Database Connection Failed: ${error.message}`);
-    process.exit(1); // exit if DB is unreachable
+    process.exit(1);
   }
 };
 
