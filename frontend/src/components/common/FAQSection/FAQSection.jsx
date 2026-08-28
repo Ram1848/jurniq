@@ -5,7 +5,7 @@ import { HiOutlineChevronDown } from 'react-icons/hi2';
 const faqs = [
   {
     question: 'How do I request a ride?',
-    answer: 'Simply open the RideShare app or website, enter your destination in the "Where to?" box, select your preferred ride option, and tap "Book Ride". A nearby driver will be matched with you instantly.'
+    answer: 'Simply open the Jurniq app or website, enter your destination in the "Where to?" box, select your preferred ride option, and tap "Book Ride". A nearby driver will be matched with you instantly.'
   },
   {
     question: 'Are the fares fixed or estimated?',
@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: 'How are drivers vetted?',
-    answer: 'Safety is our top priority. All RideShare drivers undergo comprehensive background checks, vehicle inspections, and driving history reviews before they are approved to drive on our platform.'
+    answer: 'Safety is our top priority. All Jurniq drivers undergo comprehensive background checks, vehicle inspections, driving safety scoring, and history reviews before they are approved to drive on our platform.'
   },
   {
     question: 'Can I schedule a ride in advance?',

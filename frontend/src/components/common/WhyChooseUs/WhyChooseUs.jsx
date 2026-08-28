@@ -1,24 +1,77 @@
 import { motion } from 'motion/react';
-import { HiOutlineBolt, HiOutlineCurrencyDollar, HiOutlineShieldCheck } from 'react-icons/hi2';
+import { 
+  HiOutlineBolt, 
+  HiOutlineCpuChip, 
+  HiOutlineShieldCheck, 
+  HiOutlineMapPin, 
+  HiOutlineMap, 
+  HiOutlineCreditCard, 
+  HiOutlineExclamationTriangle, 
+  HiOutlineCurrencyDollar, 
+  HiOutlinePhone, 
+  HiOutlineSparkles 
+} from 'react-icons/hi2';
 
 const cards = [
   {
     icon: HiOutlineBolt,
     title: 'Lightning Fast Pickups',
-    desc: 'Average pickup time of just 3 minutes. Our smart algorithm connects you with the nearest driver instantly.',
-    gradient: 'from-blue-500 to-cyan-400',
+    desc: 'Average pickup time of under 3 minutes powered by real-time dispatching.',
+    gradient: 'from-blue-600 to-cyan-500',
   },
   {
-    icon: HiOutlineCurrencyDollar,
-    title: 'Best Price Guarantee',
-    desc: 'Most competitive fares in the industry. Transparent pricing with no hidden charges or surge surprises.',
-    gradient: 'from-emerald-500 to-green-400',
+    icon: HiOutlineCpuChip,
+    title: 'AI Driver Recommendation',
+    desc: 'Smart AI matching connects you with top-rated drivers suited to your ride preference.',
+    gradient: 'from-indigo-600 to-blue-500',
   },
   {
     icon: HiOutlineShieldCheck,
-    title: 'Safety First',
-    desc: 'All drivers are verified with background checks. Real-time ride monitoring and SOS emergency button.',
-    gradient: 'from-violet-500 to-purple-400',
+    title: 'Driver Safety Score',
+    desc: 'Comprehensive safety scores monitoring driving habits to keep every trip secure.',
+    gradient: 'from-emerald-600 to-green-500',
+  },
+  {
+    icon: HiOutlineMapPin,
+    title: 'Live Ride Tracking',
+    desc: 'Live GPS location tracking and accurate ETA updates from pickup to dropoff.',
+    gradient: 'from-sky-600 to-blue-400',
+  },
+  {
+    icon: HiOutlineMap,
+    title: 'Google Maps Navigation',
+    desc: 'Integrated turnkey navigation assuring optimal, traffic-aware routing.',
+    gradient: 'from-teal-600 to-emerald-400',
+  },
+  {
+    icon: HiOutlineCreditCard,
+    title: 'Secure Payments',
+    desc: 'Encrypted payments via Stripe, digital wallets, and card processors.',
+    gradient: 'from-purple-600 to-violet-500',
+  },
+  {
+    icon: HiOutlineExclamationTriangle,
+    title: 'Emergency SOS',
+    desc: 'Instant emergency assistance trigger sharing live location with safety personnel.',
+    gradient: 'from-red-600 to-rose-400',
+  },
+  {
+    icon: HiOutlineCurrencyDollar,
+    title: 'Transparent Pricing',
+    desc: 'Clear upfront fare calculation without surge gouging or hidden charges.',
+    gradient: 'from-amber-600 to-yellow-400',
+  },
+  {
+    icon: HiOutlinePhone,
+    title: '24/7 Support',
+    desc: 'Round-the-clock dedicated customer assistance via in-app support chat.',
+    gradient: 'from-blue-600 to-indigo-500',
+  },
+  {
+    icon: HiOutlineSparkles,
+    title: 'Premium User Experience',
+    desc: 'State-of-the-art UI/UX crafted for maximum comfort and effortless navigation.',
+    gradient: 'from-primary to-accent',
   },
 ];
 
@@ -27,9 +80,9 @@ const WhyChooseUs = () => {
     <section id="about" className="py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">Why Choose RideShare?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-4">Why Choose Jurniq?</h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            We're redefining urban mobility with technology, safety, and affordability at our core.
+            We're redefining urban mobility with intelligent technology, safety, and transparency at our core.
           </p>
         </div>
 

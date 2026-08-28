@@ -28,8 +28,8 @@ const ContactSection = () => {
             </div>
             <h4 className="text-xl font-bold text-text-primary mb-2">Email Support</h4>
             <p className="text-text-secondary mb-4">We aim to respond within 24 hours.</p>
-            <a href="mailto:support@rideshare.com" className="text-primary font-semibold hover:underline">
-              support@rideshare.com
+            <a href="mailto:support@jurniq.com" className="text-primary font-semibold hover:underline">
+              support@jurniq.com
             </a>
           </motion.div>
 

@@ -7,16 +7,20 @@ const Footer = () => (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
         {/* Brand */}
         <div>
-          <Link to="/" className="flex items-center gap-2 no-underline mb-4">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-bold text-sm">R</span>
+          <Link to="/" className="flex items-center gap-2.5 no-underline mb-4">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary via-primary-dark to-accent flex items-center justify-center shadow-md">
+              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a6 6 0 110 12 6 6 0 010-12z" />
+                <path d="M12 8v4l3 3" />
+              </svg>
             </div>
-            <span className="text-xl font-bold text-white">
-              Ride<span className="text-primary">Share</span>
+            <span className="text-xl font-extrabold text-white tracking-tight">
+              JURN<span className="text-primary">IQ</span>
             </span>
           </Link>
-          <p className="text-gray-400 text-sm leading-relaxed mb-5">
-            Making urban transportation smarter, safer, and more affordable for everyone.
+          <p className="text-gray-400 text-sm font-semibold mb-2">Jurniq Technologies</p>
+          <p className="text-gray-400 text-xs italic leading-relaxed mb-5">
+            Driven by Intelligence. Defined by Trust.
           </p>
           <div className="flex gap-3">
             {[FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn].map((Icon, i) => (
@@ -74,7 +78,7 @@ const Footer = () => (
         <div>
           <h4 className="text-white font-semibold mb-4">Contact Us</h4>
           <ul className="space-y-2.5 list-none p-0 text-gray-400 text-sm">
-            <li>support@rideshare.com</li>
+            <li>support@jurniq.com</li>
             <li>+1 (555) 123-4567</li>
             <li>123 Innovation Drive, San Francisco, CA</li>
           </ul>
@@ -83,7 +87,7 @@ const Footer = () => (
 
       {/* Bottom bar */}
       <div className="border-t border-white/10 pt-6 text-center">
-        <p className="text-gray-500 text-sm">&copy; 2024 RideShare. All rights reserved.</p>
+        <p className="text-gray-500 text-sm">&copy; 2026 Jurniq Technologies. All Rights Reserved.</p>
       </div>
     </div>
   </footer>

@@ -50,7 +50,7 @@ export const searchLocations = async (query, biasLocation = null) => {
       params,
       headers: {
         'Accept-Language': 'en-US,en;q=0.9',
-        'User-Agent': 'RideSharingApp/1.0 (contact@rideshare.com)',
+        'User-Agent': 'JurniqApp/1.0 (contact@jurniq.com)',
       },
     });
 
@@ -97,7 +97,7 @@ export const reverseGeocode = async (lat, lng) => {
       },
       headers: {
         'Accept-Language': 'en-US,en;q=0.9',
-        'User-Agent': 'RideSharingApp/1.0 (contact@rideshare.com)',
+        'User-Agent': 'JurniqApp/1.0 (contact@jurniq.com)',
       },
     });
     return res.data?.display_name || `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
@@ -117,7 +117,7 @@ export const getRouteDetails = async (pickup, drop) => {
     const url = `https://router.project-osrm.org/route/v1/driving/${pickup.lng},${pickup.lat};${drop.lng},${drop.lat}?overview=full&geometries=geojson`;
     const res = await axios.get(url, {
       headers: {
-        'User-Agent': 'RideSharingApp/1.0 (contact@rideshare.com)',
+        'User-Agent': 'JurniqApp/1.0 (contact@jurniq.com)',
       },
     });
 

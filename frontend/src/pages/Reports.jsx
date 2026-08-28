@@ -49,7 +49,7 @@ const Reports = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `rideshare_${type}_report_${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `jurniq_${type}_report_${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
     toast.success('Report downloaded!');

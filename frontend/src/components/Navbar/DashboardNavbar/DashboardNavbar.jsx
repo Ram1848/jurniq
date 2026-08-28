@@ -34,12 +34,15 @@ const DashboardNavbar = ({ onToggleSidebar }) => {
           <button onClick={onToggleSidebar} className="lg:hidden p-2 text-text-secondary hover:text-text-primary">
             <HiBars3 className="w-6 h-6" />
           </button>
-          <Link to={user?.role === 'admin' ? '/admin/dashboard' : user?.role === 'driver' ? '/driver-dashboard' : '/dashboard'} className="flex items-center gap-2 no-underline">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-              <span className="text-white font-bold text-xs">R</span>
+          <Link to={user?.role === 'admin' ? '/admin/dashboard' : user?.role === 'driver' ? '/driver-dashboard' : '/dashboard'} className="flex items-center gap-2.5 no-underline">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-sm">
+              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 4a6 6 0 110 12 6 6 0 010-12z" />
+                <path d="M12 8v4l3 3" />
+              </svg>
             </div>
-            <span className="text-lg font-bold text-text-primary hidden sm:block">
-              Ride<span className="text-primary">Share</span>
+            <span className="text-lg font-extrabold text-text-primary hidden sm:block tracking-tight">
+              JURN<span className="text-primary">IQ</span>
             </span>
           </Link>
         </div>

@@ -4,21 +4,21 @@ import { HiOutlineUserGroup, HiOutlineSparkles, HiOutlineBriefcase } from 'react
 const services = [
   {
     icon: HiOutlineUserGroup,
-    title: 'RideShare Economy',
+    title: 'Jurniq Economy',
     desc: 'Affordable everyday rides for everyone. Perfect for daily commutes and quick trips across town.',
     price: 'From $5',
     color: 'from-blue-500 to-cyan-400'
   },
   {
     icon: HiOutlineSparkles,
-    title: 'RideShare Premium',
+    title: 'Jurniq Premium',
     desc: 'High-end vehicles with top-rated drivers. Ideal for business meetings, date nights, and special occasions.',
     price: 'From $15',
     color: 'from-violet-500 to-purple-400'
   },
   {
     icon: HiOutlineBriefcase,
-    title: 'RideShare XL',
+    title: 'Jurniq XL',
     desc: 'Spacious SUVs and minivans for up to 6 passengers. Great for group outings and airport transfers with luggage.',
     price: 'From $12',
     color: 'from-emerald-500 to-green-400'

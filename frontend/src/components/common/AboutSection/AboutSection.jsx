@@ -32,12 +32,15 @@ const AboutSection = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">About RideShare</h2>
+            <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">About Jurniq</h2>
             <h3 className="text-3xl sm:text-4xl font-extrabold text-text-primary mb-6">
-              Moving people, <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">changing lives.</span>
+              Driven by Intelligence. <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Defined by Trust.</span>
             </h3>
-            <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-              Founded with a mission to simplify urban mobility, RideShare connects thousands of passengers with reliable drivers every day. We believe that getting from point A to B should be seamless, affordable, and most importantly, safe.
+            <p className="text-lg text-text-secondary mb-4 leading-relaxed">
+              Jurniq is an AI-powered smart mobility platform designed to transform urban transportation through intelligent ride recommendations, real-time tracking, secure authentication, smart payments, and advanced safety technologies.
+            </p>
+            <p className="text-base text-text-secondary mb-8 leading-relaxed">
+              Built with innovation and trust at its core, Jurniq delivers a smarter, safer, and more connected travel experience for every journey.
             </p>
             
             <div className="space-y-6">

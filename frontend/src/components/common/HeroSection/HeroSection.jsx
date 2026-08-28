@@ -20,24 +20,23 @@ const HeroSection = () => (
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-6"
           >
             <HiOutlineRocketLaunch className="w-4 h-4" />
-            #1 Ride Sharing Platform
+            Next-Gen Smart Mobility Platform
           </motion.div>
 
           {/* Heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-text-primary leading-tight mb-6">
-            Your Smart Ride,{' '}
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Anytime, Anywhere
+            Move Smarter with{' '}
+            <span className="bg-gradient-to-r from-primary via-primary-dark to-accent bg-clip-text text-transparent">
+              Jurniq
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg text-text-secondary max-w-lg mb-8 leading-relaxed">
-            Safe, Fast and Reliable transportation experience. Join thousands of riders who trust us
-            for their daily commute.
+          <p className="text-lg text-text-secondary max-w-xl mb-8 leading-relaxed">
+            Experience AI-powered ride sharing with intelligent driver recommendations, real-time tracking, secure payments, and advanced safety features—all in one seamless platform.
           </p>
 
           {/* Buttons */}
@@ -46,7 +45,7 @@ const HeroSection = () => (
               Book a Ride
             </Link>
             <Link to="/register" className="btn-secondary text-base !py-3.5 !px-8 no-underline">
-              Become a Driver
+              Get Started
             </Link>
           </div>
 

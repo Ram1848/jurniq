@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: 'Sarah Johnson',
     role: 'Daily Commuter',
-    content: 'RideShare has completely transformed my daily commute. The drivers are always punctual, and the app is incredibly intuitive to use. I save so much time every week!',
+    content: 'Jurniq has completely transformed my daily commute. The drivers are always punctual, and the app is incredibly intuitive to use. I save so much time every week!',
     rating: 5,
     initials: 'SJ',
     color: 'bg-blue-500'
@@ -13,7 +13,7 @@ const testimonials = [
   {
     name: 'David Chen',
     role: 'Business Traveler',
-    content: 'I rely on RideShare Premium for all my business meetings across the city. The vehicles are pristine, and the service is exceptionally professional. Highly recommended.',
+    content: 'I rely on Jurniq Premium for all my business meetings across the city. The vehicles are pristine, and the service is exceptionally professional. Highly recommended.',
     rating: 5,
     initials: 'DC',
     color: 'bg-violet-500'
@@ -21,7 +21,7 @@ const testimonials = [
   {
     name: 'Elena Rodriguez',
     role: 'Weekend Explorer',
-    content: 'Whether going to the airport or heading downtown for dinner, RideShare is my go-to. Transparent pricing means no nasty surprises when I check my receipt.',
+    content: 'Whether going to the airport or heading downtown for dinner, Jurniq is my go-to. Transparent pricing means no nasty surprises when I check my receipt.',
     rating: 5,
     initials: 'ER',
     color: 'bg-emerald-500'
@@ -36,7 +36,7 @@ const TestimonialsSection = () => {
           <h2 className="text-sm font-bold text-primary tracking-widest uppercase mb-3">Testimonials</h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold text-text-primary mb-4">Loved by Riders Everywhere</h3>
           <p className="text-text-secondary max-w-2xl mx-auto text-lg">
-            Don't just take our word for it. Here's what our community has to say about their RideShare experience.
+            Don't just take our word for it. Here's what our community has to say about their Jurniq experience.
           </p>
         </div>
 
